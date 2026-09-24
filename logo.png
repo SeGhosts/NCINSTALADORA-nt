@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NC Instaladora | Energia Solar & Limpeza de Painéis</title>
+    <!-- Ícones e Fontes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0A3663;
+            --secondary: #EAA000;
+            --accent: #25D366;
+            --dark: #1A1A1A;
+            --light: #F4F7FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar com Logótipo */
+        header {
+            background-color: var(--white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(10, 54, 99, 0.88), rgba(10, 54, 99, 0.88)), 
+                        url('https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1600') center/cover;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 120px 20px 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--accent);
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Serviços */
+        .services {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: var(--secondary);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 35px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card i {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Sobre */
+        .about {
+            background-color: var(--white);
+            padding: 80px 5%;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            height: auto;
+            max-height: 320px;
+            border-radius: 10px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        /* Contactos */
+        .contact {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background: var(--white);
+            padding: 18px 30px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-menu { display: none; }
+            .about-container { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header com Logo -->
+    <header>
+        <nav class="navbar">
+            <a href="#inicio">
+                <img src="logo.png" alt="NC Instaladora de Painéis Solares" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Energia Solar com Qualidade e Segurança</h1>
+            <p>Garanta a máxima eficiência na geração de energia para a sua casa ou empresa com a NC Instaladora[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).</p>
+            <a href="https://wa.me/5547991041960?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="services" id="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="card">
+                <i class="fa-solid fa-solar-panel"></i>
+                <h3>Instalação de Placas Solares</h3>
+                <p>Instalação completa de sistemas fotovoltaicos focada na eficiência e segurança da sua estrutura[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span).</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-hand-holding-droplet"></i>
+                <h3>Limpeza de Placas Solares</h3>
+                <p>Limpeza técnica especializada para recuperar a capacidade total de geração do seu painel solar[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span).</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>Manutenção e Ajustes</h3>
+                <p>Revisão de cabos, inversores e estruturas para garantir que tudo funcione sem interrupções.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós com Logo da Empresa -->
+    <section class="about" id="sobre">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="logo.png" alt="NC Instaladora Logo">
+            </div>
+            <div class="about-text">
+                <h2>NC Instaladora de Painéis Solares</h2>
+                <p>Sob a liderança de <strong>Natanael César</strong>, oferecemos um serviço especializado focado no bom funcionamento e na máxima eficiência do seu sistema de energia solar[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span).</p>
+                <p>Atendemos projetos residenciais e comerciais com transparência, agilidade e total foco em segurança e redução de custos na sua conta de energia[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <h2 class="section-title">Fale Conosco</h2>
+        <p>Clique abaixo para abrir a conversa direta no WhatsApp:</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://wa.me/5547991041960" target="_blank">(47) 99104-1960</a>[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span)
+            </div>
+            <div class="contact-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://wa.me/5547988599237" target="_blank">(47) 98859-9237</a>[span_16](start_span)[span_16](end_span)[span_17](start_span)[span_17](end_span)
+            </div>
+            <div class="contact-item">
+                <i class="fa-brands fa-instagram"></i>
+                <a href="https://instagram.com/nc123instalacoes_" target="_blank">@nc123instalacoes_</a>[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span)
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NC Instaladora de Painéis Solares. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5547991041960?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações." class="whatsapp-float" target="_blank" title="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
